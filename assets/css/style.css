@@ -149,16 +149,6 @@ header h3 {
   font-size: 18px;
 }
 
-.gallery {
-  gap: 15px;
-}
-
-.gallery-item img,
-.gallery-item video {
-  height: 180px;
-}
-
-
 
 .biographies {
   display: flex;
@@ -212,107 +202,180 @@ header h3 {
   }
 }
 
-.full-width-gallery {
-  padding: 20px;
+/* Filter Controls */
+.filter-controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
 }
 
-.gallery {
-  display: -ms-grid; /* IE Fallback */
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-gap: 20px;
-  margin: 0 auto;
-  grid-auto-flow: dense;
+.filter-btn {
+  background: transparent;
+  border: 2px solid #800020;
+  color: #800020;
+  padding: 10px 25px;
+  font-family: "Georgia", serif;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background-color: #800020;
+  color: #FFFBF2;
+  box-shadow: 0 4px 10px rgba(128, 0, 32, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Creating a Premium Masonry Layout */
+.gallery-masonry {
+  column-count: 3;
+  column-gap: 20px;
+  padding: 20px 0;
 }
 
 .gallery-item {
+  break-inside: avoid;
+  margin-bottom: 20px;
   position: relative;
+  border-radius: 12px;
   overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease;
-  border: none;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+  cursor: pointer;
+  background-color: #000; /* For better image loading contrast */
 }
 
+/* Hover Effect - Zoom and Darken */
 .gallery-item:hover {
-  transform: scale(1.05);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  z-index: 2;
 }
 
-.gallery-item img,
-.gallery-item video {
+.gallery-item img {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
+  height: auto;
   display: block;
-  -webkit-user-select: none;
-  user-select: none;
-  -webkit-touch-callout: none;
-  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.6s ease;
+  /* Make images slightly brighter/saturated on hover? Or just scale */
 }
 
+.gallery-item:hover img {
+  transform: scale(1.08);
+  opacity: 0.9;
+}
+
+/* Premium Caption Overlay */
 .gallery-caption {
   position: absolute;
-  bottom: 0;
+  bottom: -60px; /* Initially hidden below */
   left: 0;
   right: 0;
-  background: rgba(128, 0, 32, 0.85);
-  color: #FFFBF2;
-  padding: 15px;
-  font-size: 14px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+  color: #ffffff;
+  padding: 20px 15px 15px;
+  font-size: 15px;
   text-align: center;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: all 0.4s ease;
+  transform: translateY(20px);
 }
 
 .gallery-item:hover .gallery-caption {
+  bottom: 0;
   opacity: 1;
+  transform: translateY(0);
 }
 
-.gallery-item-tall {
-  grid-row: span 2;
+/* Lightbox Modal */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.3s;
 }
 
-.gallery-item-wide {
-  grid-column: span 2;
+.lightbox-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 4px;
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.1);
+  animation: zoomIn 0.4s;
 }
 
-.gallery-item-full {
-  grid-column: 1 / -1;
+#lightbox-caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 20px 0;
+  font-size: 18px;
+  font-family: "Georgia", serif;
 }
 
-.gallery-item-full video {
-  height: auto;
+.close-lightbox {
+  position: absolute;
+  top: 25px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
 }
 
-/*Smaller screens*/
+.close-lightbox:hover,
+.close-lightbox:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
 
-@media (max-width: 768px) {
-  header h1 {
-    font-size: 36px;
-  }
-  header h3 {
-    font-size: 18px;
-  }
-  .gallery {
-    gap: 15px;
-  }
-  .gallery-item img,
-  .gallery-item video {
-    height: 180px;
+/* Animations */
+@keyframes fadeIn {
+  from {opacity: 0} 
+  to {opacity: 1}
+}
+
+@keyframes zoomIn {
+  from {transform: scale(0.9); opacity: 0}
+  to {transform: scale(1); opacity: 1}
+}
+
+/* Responsive Masonry */
+@media (max-width: 992px) {
+  .gallery-masonry {
+    column-count: 2;
   }
 }
 
-@media (max-width: 480px) {
-  header h1 {
-    font-size: 30px;
+@media (max-width: 600px) {
+  .gallery-masonry {
+    column-count: 1;
   }
-
-  header h3 {
-    font-size: 16px;
+  .filter-controls {
+    gap: 10px;
   }
-
-  .gallery-item img,
-  .gallery-item video {
-    height: 150px;
+  .filter-btn {
+    padding: 8px 16px;
+    font-size: 14px;
   }
 }
