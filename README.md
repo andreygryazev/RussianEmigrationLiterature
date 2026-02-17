@@ -1,6 +1,6 @@
-# 📚 Russian Emigration Literature — Nina Berberova "The Last and The First"
+# 📚 Russian Emigration Literature - Nina Berberova "The Last and The First"
 
-A multi-page web project exploring the first wave of Russian emigration (1918–1924) through the lens of Nina Berberova's novel — history, biographies, gallery & interactive map.
+A multi-page web project exploring the first wave of Russian emigration (1918–1924) through the lens of Nina Berberova's novel - history, biographies, gallery & interactive map.
 
 ## 🎓 About the Project
 
@@ -13,26 +13,26 @@ A multi-page web project exploring the first wave of Russian emigration (1918–
 
 | Page | Description |
 |------|-------------|
-| `index.html` | Main page — introduction, timeline, literary analysis, quotes & bibliography |
+| `index.html` | Main page - introduction, timeline, literary analysis, quotes & bibliography |
 | `pages/biography.html` | Biographies of key emigrant writers (Berberova, Bunin, Tsvetaeva) |
 | `pages/gallery.html` | Photo gallery with filtering & lightbox (people, places & documents) |
 | `pages/map.html` | Interactive Leaflet map showing emigration routes and cultural centers |
 
 ## ✨ Features
 
-- 📜 **Historical Timeline** — key events from 1917 to 1928
-- 🖼️ **Masonry Gallery** — filterable photo collection with lightbox viewer
-- 🗺️ **Interactive Map** — emigration centers powered by [Leaflet.js](https://leafletjs.com/)
-- 👤 **Author Biographies** — detailed cards for Berberova, Bunin & Tsvetaeva
-- 💬 **Literary Quotes** — curated quotes from prominent emigrant writers
-- 📖 **In-depth Analysis** — essay on *"The Last and The First"*
+- 📜 **Historical Timeline** - key events from 1917 to 1928
+- 🖼️ **Masonry Gallery** - filterable photo collection with lightbox viewer
+- 🗺️ **Interactive Map** - emigration centers powered by [Leaflet.js](https://leafletjs.com/)
+- 👤 **Author Biographies** - detailed cards for Berberova, Bunin & Tsvetaeva
+- 💬 **Literary Quotes** - curated quotes from prominent emigrant writers
+- 📖 **In-depth Analysis** - essay on *"The Last and The First"*
 
 ## 🔧 Tech Stack
 
-- **HTML5** — semantic markup
-- **CSS3** — custom styles, masonry layout, animations
-- **JavaScript** — gallery filtering, lightbox, map logic
-- **Leaflet.js** — interactive map rendering
+- **HTML5** - semantic markup
+- **CSS3** - custom styles, masonry layout, animations
+- **JavaScript** - gallery filtering, lightbox, map logic
+- **Leaflet.js** - interactive map rendering
 
 ## 🚀 Getting Started
 
@@ -40,7 +40,7 @@ A multi-page web project exploring the first wave of Russian emigration (1918–
    ```bash
    git clone https://github.com/andreygryazev/RussianEmigrationLiterature.git
    ```
-2. Open `index.html` in your browser — no build step required.
+2. Open `index.html` in your browser - no build step required.
 
 ## 📁 File Tree
 
